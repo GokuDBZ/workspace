@@ -20,4 +20,3 @@
 //= require components
 //= require_tree .
 
-particlesJS.load('games', 'demo/particles');
