@@ -1,0 +1,14 @@
+Functional Programming:-
+
+> Functional programming is about writing pure functions, about removing hidden inputs and outputs as far as we can, 
+so that as much of our code as possible just describes a relationship between inputs and outputs.
+
+Pure functions are those which dont have any hidden input and output.
+
+public void processNext() {
+    Message message = InboxQueue.popMessage();
+
+    if (message != null) {
+        process(message);
+    }
+}---------------------------   Above method has " message" as hidden input and process(message) gives hidden output of which we are not aware of.
