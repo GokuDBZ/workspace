@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   #   end
     root 'demo#index'
     get 'demo/particles' => 'demo#particles'
+    resources :resume
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
