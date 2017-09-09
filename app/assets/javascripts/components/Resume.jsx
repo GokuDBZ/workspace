@@ -1,4 +1,9 @@
 class Resume extends React.Component {
+  
+  constructor(props){
+    super(props)
+    this.check = this.check.bind(this)
+  }
   componentDidMount() {
   	// If you want to pass more options as props, simply add
     // your desired props to this destructuring assignment.
@@ -19,22 +24,32 @@ class Resume extends React.Component {
     // to prevent memory leaks
     this.typed.destroy();
   }
+  
+  check(){
+    $(this.am).hide()
+  }
 
   render() {
     return (
+      <div>
       <div className="wrap">
-        <h1>Typed.js</h1>
+        <h1>This is Typed.js</h1>
         <div className="type-wrap">
           <span
             style={{ whiteSpace: 'pre' }}
             ref={(el) => { this.el = el; }}
           />
+          
         </div>
         <button onClick={() => this.typed.toggle()}>Toggle</button>
         <button onClick={() => this.typed.start()}>Start</button>
         <button onClick={() => this.typed.stop()}>Stop</button>
         <button onClick={() => this.typed.reset()}>Reset</button>
         <button onClick={() => this.typed.destroy()}>Destroy</button>
+      </div>
+      <div>
+        <span onClick={this.check} ref={(am)=>{this.am = am}}>Hi    guys</span>
+      </div>
       </div>
     );
   }
