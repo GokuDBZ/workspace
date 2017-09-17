@@ -1,0 +1,11 @@
+<p>Form</p>
+<%=  form_for @artcile do |f|%>
+    <%=  f.label :NAME%><br>
+    <%=  f.text_field :name%>
+    <br>
+    <%=  f.label :DESCRIPTION%>
+    <br>
+    <%=  f.text_field :description%>
+    <br>
+    <%=  f.submit :submit%>
+<%end%>
