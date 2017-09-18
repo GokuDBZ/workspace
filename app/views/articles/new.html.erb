@@ -1,5 +1,13 @@
 <p>Form</p>
-<%=  form_for @artcile do |f|%>
+<ul>
+  <%if  @article.errors.present?%>
+    <%@article.errors.full_messages.each{|msg| %>
+    
+    <li><%= msg %></li>
+    <%}%>
+  <%end%>
+  </ul>
+<%=  form_for @article do |f|%>
     <%=  f.label :NAME%><br>
     <%=  f.text_field :name%>
     <br>

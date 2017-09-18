@@ -1,0 +1,17 @@
+<span>Edit Article</span>
+<!-- display errors if any -->
+<% if @article.errors.any? %>
+<ul> <% @article.errors.full_messages.each do |error| %>
+        <li> <%= error%> </li>
+    <%end%>
+<%end%>
+
+<!-- edit from -->
+<%= form_for @article, url: {action: 'update'},data: {id: @article.id} do |form|%>
+    <span><%= form.label :Name%></span>
+    <span><%= form.text_field :name%></span>
+    <span> <%= form.label :description%></span>
+    <span><%= form.text_field :description%> </span>
+    <span><%= form.hidden_field :article_id, :value => @article.id %></span>
+    <%= form.submit :Submit%>
+<%end%>

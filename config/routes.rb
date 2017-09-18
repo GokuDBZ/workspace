@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   resources :lifts
   resources :test_articles
   resource :articles
+  get '/articles/index' , to: "articles#index"
+  get '/articles/:id' , to: "articles#show"
+  get 'articles/edit/:id', to: "articles#edit"
+  get 'articles/update', to: "articles#update"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

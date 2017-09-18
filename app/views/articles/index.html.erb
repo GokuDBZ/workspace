@@ -1,0 +1,7 @@
+<h2> Articles</h2><br>
+<h2><%= flash[:notice] if flash[:notice].present? %></h1><br>
+<%@articles.each do |article| %>
+  <label>Name</label> <span><%= article.name%></span>
+  <label>Description</label> <span><%= article.description%></span> <span><%= link_to 'Edit',"/articles/edit/#{article.id}"%> </span>
+  <span><%= link_to 'Delete',"/articles/delete/#{article.id}"%> <br></span>
+<%end%>

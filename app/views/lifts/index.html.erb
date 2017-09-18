@@ -1,6 +1,6 @@
 <p>&nbsp &nbsp Soon you will see rendering with component here</p>
-<%= javascript_include_tag 'application'%>
-<%= react_component 'Lifts', {data: @lifts,message: "Finally my component is here ignore above message"}%>
-<%= react_component 'Buton'%>
-<%= react_component 'Main'%>
+<!-- Lifts component is breaking need to look into this -->
+<%#= react_component 'Lifts', {data: @lifts,message: "Finally my component is here ignore above message"}%>
+
+<%= react_component('Main')%>
 <%= react_component 'MainCard'%>
