@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/articles/:id' , to: "articles#show"
   get 'articles/edit/:id', to: "articles#edit"
   get 'articles/update', to: "articles#update"
+  get 'aticles/delete/:id', to: "articles#delete"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
