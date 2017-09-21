@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+  
+    before_action :set_article, only: [:show,:edit,:delete]
+    
     def index
         @articles = Article.all
     end
@@ -15,16 +18,15 @@ class ArticlesController < ApplicationController
       else
         flash[:notice]  = "Please enter correct information"
         render 'new'
-        
       end
     end
   
     def show
-      @article = Article.find(params[:id])
+      # to set article we are using call back
     end
     
     def edit
-      @article = Article.find(params[:id])
+     #  to set article we are using call back
     end
     
     def update
@@ -38,12 +40,17 @@ class ArticlesController < ApplicationController
     end
     
     def delete
-      @article = Article.find(params[:id])
+      # to set article we are using call back
       redirect_to articles_index_path if @article.destroy
       
     end
     
     private
+    
+    def set_article
+      @article = Article.find(params[:id])
+    end
+    
     def article_params
         params.require(:article).permit(:name,:description)
     end
