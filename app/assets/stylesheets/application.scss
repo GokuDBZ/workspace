@@ -1,4 +1,23 @@
+.navbar-default{
+    background-color: 'cyan' 
+}
+
+#inn-wv{
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    color: #b37399;
+    
+}
+#articles_link{
+   font-weight: bold;
+    //text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #699;
+;
+}
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "./articles.scss"
+
