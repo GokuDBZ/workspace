@@ -9,12 +9,78 @@
     color: #b37399;
     
 }
+
 #articles_link{
    font-weight: bold;
     //text-transform: uppercase;
     letter-spacing: 0.5px;
     color: #699;
-;
+}
+
+.jumbotron{
+    background-image: asset-url('innovation.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    text-align: center;
+    
+    h1{
+    color: #faebd7 !important;
+    font-weight: bold;
+    margin-top: -30px;
+    cursor: default;
+    }
+    
+    p{
+        color: #f0f8ff;
+        font-weight: bold;
+        cursor: default;
+        font-size: 12px;
+        text-transform: capitalize;
+    }
+    
+    .btn-xlg{
+         background-color:  rgba(75, 33, 33, 0.37) !important;
+         
+         &:hover{
+         background-color: rgba(75, 33, 33, 0.62) !important;
+         }
+    }
+     
+}
+
+.footer{
+    margin-top: 20px;
+    border-top: 2px solid #8B0000;
+    color: #FF3366;
+    
+    .small{
+        float:left;
+    }
+    
+    a{
+        text-decoration: none;
+        opacity: 0.7;
+        
+        &:visited{
+            text-decoration: none;   
+        }
+        
+        &:hover{
+            text-decoration: none;  
+            color: #50D2C2;
+            font-weight: bold;
+            opacity: 1;
+            text-transform: uppercase;
+            
+        }
+    }
+    
+    ul{
+        float: right;
+        text-decoration: none;
+        display: inline-block;
+    }
 }
 
 @import "bootstrap-sprockets";

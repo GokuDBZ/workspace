@@ -10,6 +10,10 @@ class ArticlesController < ApplicationController
         @article = Article.new
     end
     
+    def list_articles
+      @articles = Article.all
+    end
+    
     def create
       @article = Article.new(article_params)
       if @article.save

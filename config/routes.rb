@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   resources :lifts
   resources :test_articles
   resource :articles
-  get '/articles/index' , to: "articles#index"
+  get 'articles_' , to: "articles#index"
   get '/articles/:id' , to: "articles#show"
+  get 'list_articles', to: 'articles#list_articles'
   get 'articles/edit/:id', to: "articles#edit"
   get 'articles/update', to: "articles#update"
   get 'aticles/delete/:id', to: "articles#delete"

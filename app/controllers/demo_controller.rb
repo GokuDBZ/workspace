@@ -4,6 +4,7 @@ class DemoController < ApplicationController
     def index
         
     end
+    
     def particles
         render  text: File.read('config/particles.json')
     end
