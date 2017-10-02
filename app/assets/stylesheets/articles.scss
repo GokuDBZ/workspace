@@ -2,9 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.tab{
-    color: green;
-    background-color: grey;
-    font-size: 15px;
+
+$navbar-default-bg: #08088A;
+
+.center{
+    text-align: center;
+}
+
+.create{
+    text-align: center;
+}
+.links{
+    width: 50px;
+    float: right;
+    margin-top:-10px;
     
+}
+
+.article_name{
+    color: magenta;
+    font-weight: bold;
+    font-size:18px;
+    text-transform: capitalize;
+    box-shadow: 1px;
+    
+}
+.article_body{
+    border-top: 1px solid #eaeaea;
 }

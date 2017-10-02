@@ -1,17 +1,17 @@
 <h2> Articles</h2><br>
 <h2><%= flash[:notice] if flash[:notice].present? %></h2><br>
-<table class="tab">
-  <tr>
-    <th>Name</th> 
-    <th>Description </th>
-  </tr>
+
 <%@articles.each do |article| %>
-  <tr>
-    <td><%= article.name%></td>
-    <td><%= article.description%></td>
-    <td><%= link_to 'Edit',"/articles/edit/#{article.id}"%> |</td>
-    <td><%= link_to 'Delete', controller: 'articles', action: "delete", id: article %> </td>
-  </tr>
+<div class="row">
+  <div class="col-xs-8">
+      <div class="well well-lg">
+        <div class="article_name"><%= article.name%></div>
+        <div class="article_body"><%=truncate(article.description,length:10)%></div>
+        <div class="links"><%= link_to 'Edit',"/articles/edit/#{article.id}", class: "btn btn-xs btn-primary"%> </div>
+        <div class="links"><span class="btn btn-xs btn-danger"><%= link_to 'Delete',controller: 'articles', action: "delete", id: article.id%></span></div>
+      </div>
+  </div>
+</div>
+
 <%end%>
-</table>
 <%= image_tag("dp.jpg", height: '100', width: '100',alt: "no image")%>
