@@ -63,6 +63,7 @@ GEM
     debug_inspector (0.0.2)
     erubis (2.7.0)
     exception_handler (0.7.7.0)
+      bundler
       rails (>= 4.2.0)
       responders
     execjs (2.7.0)
