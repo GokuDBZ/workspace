@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
     end
     
     def create
-      @article = Article.new(article_params)
+      @article = Article.new(article_params.merge(user: User.last))
       if @article.save
         flash[:notice] = "New Article #{@article.name} has been successfully added" 
         redirect_to "/articles/#{@article.id}"
