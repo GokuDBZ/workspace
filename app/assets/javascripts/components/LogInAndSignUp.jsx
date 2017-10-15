@@ -83,8 +83,7 @@ class LogInAndSignUp extends React.Component {
           <span>{this.state.errors}</span>
         </div>}
         {this.state.showSignup && <Signup handleSignup = {this.handleSignup}/>}
-        { true && <Login handleSignin = {this.handleSignin}/>}
-        // this.state.showLogin
+        { this.state.showLogin && <Login handleSignin = {this.handleSignin}/>}
       </div>  
     );
   }
