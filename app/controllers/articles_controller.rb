@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
     end
     
     def list_articles
-      @articles = Article.all
+      @articles = Article.paginate(page: params[:page],per_page: 5)
     end
     
     def create
