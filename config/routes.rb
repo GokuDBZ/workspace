@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :comments
   resources :comments
-  resources :users
+  resources :users, except: [:new]
   resources :lifts
   resources :test_articles
   resource :articles
