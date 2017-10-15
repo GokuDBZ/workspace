@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
+  resources :comments
+  resources :comments
+  resources :users
   resources :lifts
   resources :test_articles
   resource :articles
+  
+  # signup routes
+  post '/create_user', to: "signup_and_login#create_user"
+  get '/signup', to: "signup_and_login#index"
+  post '/signin', to: "signup_and_login#signin"
+  
   get 'articles_' , to: "articles#index"
   get '/articles/:id' , to: "articles#show"
   get 'list_articles', to: 'articles#list_articles'
@@ -45,8 +54,7 @@ Rails.application.routes.draw do
 
   # Example resource route with more complex sub-resources:
   #   resources :products do
-  #     resources :comments
-  #     resources :sales do
+  #     #     resources :sales do
   #       get 'recent', on: :collection
   #     end
   #   end
