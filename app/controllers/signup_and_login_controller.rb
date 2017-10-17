@@ -2,6 +2,7 @@ class SignupAndLoginController < ApplicationController
     #skip_before_action :index, only: [:create_user]
     
     def signup
+        
     end
     
     def create_user
@@ -19,7 +20,8 @@ class SignupAndLoginController < ApplicationController
     def signin
         user  = User.find_by(email: params[:email])
         if user.present? && user.authenticate(params[:password])
-            render json: {:data => {:sucess => true}.to_json}
+            session[:user_id] = user.id
+            render json: {:data => {:sucess => true,:path => user_path(user)}.to_json}
         elsif !user.present?
             render json: {:data =>{:success => false}.to_json}, :status => :unprocessable_entity 
         end

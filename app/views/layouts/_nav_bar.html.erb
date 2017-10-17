@@ -10,7 +10,6 @@
       </button>
       <a class="navbar-brand" href=<%= root_path%> id="inn-wv">Inno-Wave</a>
     </div>
-
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
@@ -35,6 +34,7 @@
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
+      <%= logged_in?.present? ? link_to('Sign Out') : link_to('Sign In')  %>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>
         <li class="dropdown">
