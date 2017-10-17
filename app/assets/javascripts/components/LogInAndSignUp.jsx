@@ -56,7 +56,7 @@ class LogInAndSignUp extends React.Component {
           
         }
         else{
-          window.location.assign("https://inno-wave-srjydv.c9users.io/articles_");
+          window.location.href="/articles_";
         }},
       error: (xhr, textStatus, errorThrown)=>{ console.log((xhr.data));
       this.setState({errors: ["Invalid email or password"], showLogin: true, showSignup: false})

@@ -34,7 +34,7 @@
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
-      <%= logged_in?.present? ? link_to('Sign Out') : link_to('Sign In')  %>
+      <%= logged_in?.present? ? link_to('Sign Out',signout_path,  method: 'delete') : link_to('Sign In',signup_path)  %>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>
         <li class="dropdown">

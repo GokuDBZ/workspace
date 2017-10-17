@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/create_user', to: "signup_and_login#create_user"
   get '/signup', to: "signup_and_login#index"
   post '/signin', to: "signup_and_login#signin"
+  delete '/signout' => 'signup_and_login#signout'
   
   get 'articles_' , to: "articles#index"
   get '/articles/:id' , to: "articles#show"
@@ -46,6 +47,7 @@ Rails.application.routes.draw do
     root 'demo#index'
     get 'demo/particles' => 'demo#particles'
     resources :resume
+   
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales

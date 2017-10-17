@@ -17,6 +17,11 @@ class SignupAndLoginController < ApplicationController
         render json: {:data => result.to_json} , status: :ok 
     end
     
+    def signout
+        session[:user_id] = nil
+        redirect_to articles__path 
+    end
+    
     def signin
         user  = User.find_by(email: params[:email])
         if user.present? && user.authenticate(params[:password])
