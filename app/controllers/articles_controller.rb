@@ -1,13 +1,13 @@
 class ArticlesController < ApplicationController
   
     before_action :set_article, only: [:show,:edit,:delete]
-    
+    before_action :is_user_logged_in, only: [:new]
     def index
         @articles = Article.all
     end
     
     def new
-        @article = Article.new
+          @article = Article.new
     end
     
     def list_articles
@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
     end
     
     def create
-      @article = Article.new(article_params.merge(user: User.last))
+      @article = Article.new(article_params.merge(user: current_user))
       if @article.save
         flash[:notice] = "New Article #{@article.name} has been successfully added" 
         redirect_to "/articles/#{@article.id}"
@@ -24,7 +24,14 @@ class ArticlesController < ApplicationController
         render 'new'
       end
     end
-  
+    
+    def is_user_logged_in
+      if logged_in?.present?
+          return true
+        else
+          redirect_to 
+        end
+    end
     def show
       # to set article we are using call back
     end
