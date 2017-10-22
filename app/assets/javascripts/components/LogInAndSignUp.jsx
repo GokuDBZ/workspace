@@ -1,10 +1,11 @@
 class LogInAndSignUp extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {errors: [], showSignup: true, showLogin: false, message: null}
-    this.handleSignup = this.handleSignup.bind(this);
+    this.state          = {errors: [], showSignup: true, showLogin: false, message: null}
+    this.handleSignup   = this.handleSignup.bind(this);
     this.checkForErrors = this.checkForErrors.bind(this);
-    this.handleSignin = this.handleSignin.bind(this);
+    this.handleSignin   = this.handleSignin.bind(this);
+    this.getPath        = this.getPath.bind(this);
     
   }
   
@@ -44,6 +45,16 @@ class LogInAndSignUp extends React.Component {
     }
   }
   
+  getPath(data){
+    if(data.path){
+      return data.path;
+    }
+    else{
+      return null;
+    }
+    
+  }
+  
   handleSignin(data){
     $.ajax({url: window.location.origin + "/signin",
       type: 'post',
@@ -56,7 +67,7 @@ class LogInAndSignUp extends React.Component {
           
         }
         else{
-          window.location.href="/articles_";
+          window.location.href= this.getPath(JSON.parse(xhr.data));
         }},
       error: (xhr, textStatus, errorThrown)=>{ console.log((xhr.data));
       this.setState({errors: ["Invalid email or password"], showLogin: true, showSignup: false})
@@ -69,7 +80,7 @@ class LogInAndSignUp extends React.Component {
     })
     
   }
-
+  
   render() {
     return (
       <div>
