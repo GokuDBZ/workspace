@@ -1,8 +1,14 @@
 class SignupAndLoginController < ApplicationController
     #skip_before_action :index, only: [:create_user]
+    before_action :user_signed_in? , only: [:signup]
     
     def signup
-        
+    end
+    
+    def user_signed_in?
+        if logged_in?.present?
+            redirect_to user_path(User.find(session[:user_id]))
+        end
     end
     
     def create_user
@@ -10,6 +16,8 @@ class SignupAndLoginController < ApplicationController
         result = {}
         if user.save
             result[:success] = true
+            session[:user_id] = user.id
+            result[:path] = user_path(user)
         else
             result[:success] = false
             result[:errors] = user.errors.full_messages

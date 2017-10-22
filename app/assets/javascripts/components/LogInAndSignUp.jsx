@@ -1,7 +1,7 @@
 class LogInAndSignUp extends React.Component {
   constructor(props) {
     super(props);
-    this.state          = {errors: [], showSignup: true, showLogin: false, message: null}
+    this.state          = {errors: [], showSignup: (this.props.login ? false : true), showLogin: (this.props.login ? true : false), message: null}
     this.handleSignup   = this.handleSignup.bind(this);
     this.checkForErrors = this.checkForErrors.bind(this);
     this.handleSignin   = this.handleSignin.bind(this);
@@ -16,13 +16,12 @@ class LogInAndSignUp extends React.Component {
       success: (xhr, textStatus, errorThrown)=>{
         console.log(xhr);
         errors = this.checkForErrors(JSON.parse(xhr.data));
-        debugger
         if(errors){
           this.setState({errors: errors, showLogin: false})}
         else{
-        this.setState({showLogin: true, showSignup: false, message: " User is created successfully. Please Sign In"})}
-        
-      },
+          window.location.href = this.getPath(JSON.parse(xhr.data));
+          //this.setState({showLogin: true, showSignup: false, message: " User is created successfully. Please Sign In"})
+      }},
       error: (xhr, textStatus, errorThrown)=>{ console.log((xhr&& xhr.data)); 
       alert("error")},
       dataType: "JSON"
@@ -82,6 +81,7 @@ class LogInAndSignUp extends React.Component {
   }
   
   render() {
+    debugger
     return (
       <div>
         {this.state.message && <div className='alert alert-success success_state'>
