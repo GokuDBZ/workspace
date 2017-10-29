@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :lifts
   resources :test_articles
   resource :articles
-  
+  resource :categories, except: [:destroy]
   # signup routes
   post '/create_user', to: "signup_and_login#create_user"
   get '/signup', to: "signup_and_login#index"
@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   get 'articles/edit/:id', to: "articles#edit"
   get 'articles/update', to: "articles#update"
   get 'aticles/delete/:id', to: "articles#delete"
+  
+  
+  # categories
+  get 'categories/index', to: "categories#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

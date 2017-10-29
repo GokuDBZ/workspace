@@ -1,0 +1,12 @@
+<%= will_paginate(@category_list)%>
+<% if @category_list.present? %>
+    <% @category_list.each do |category| %>
+        <div class="row">
+            <div class="well">
+                <h2><%= category.name%></h2>
+            </div>
+        </div>
+    <%end%>
+<%else%>
+    <p> No categories are preent right now </p>
+<%end%>
