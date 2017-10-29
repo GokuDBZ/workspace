@@ -1,7 +1,11 @@
 <h2> Article</h2>
 <label> Article Name</label>
 <p><%= @article.name%>
+<%= image_tag "#{gravatar_image(current_user)}?s=50",class: "img-circle"%>
 <br>
 <label>Conent</label>
 <p><%= @article.description%></p>
+<div class ="row">
+    Categories <ul><%@article.categories.each{ |category|%> <li><%= category.name%></li> <%}%> 
+</div>
 <span><%= link_to('Home', articles__path) %></span>

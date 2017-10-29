@@ -4,6 +4,9 @@
   
   <%@articles.order(created_at: :desc).each do |article| %>
     <div class="row">
+      
+      </div>
+    <div class="row">
       <div class="col-xs-8">
           <div class="well well-lg">
             <div class="article_name"><%= article.name%></div>
@@ -11,6 +14,9 @@
               <%=truncate(article.description,length:10)%>
               <small>Created by <%= image_tag(gravatar_image(article.user)+"?s=25",class: "img-circle")%></small> <small><%= time_ago_in_words(article.created_at)%> ago</small>
             </div>
+            <%article.categories.each do |category|%>
+        <span class="badge"><%= category.name.upcase%></span>
+      <%end%>
             <%if logged_in?.present? && current_user == article.user%>
               <div class="links"><%= link_to 'Edit',"/articles/edit/#{article.id}", class: "btn btn-xs btn-primary", height: 20%> </div>
               <div class="links"><span class="btn btn-xs btn-danger"><%= link_to 'Delete',controller: 'articles', action: "delete", id: article.id%></span></div>

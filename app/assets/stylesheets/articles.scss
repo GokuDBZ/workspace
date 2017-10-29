@@ -28,5 +28,14 @@ $navbar-default-bg: #08088A;
     
 }
 .article_body{
-    border-top: 1px solid #eaeaea;
+    border-top: 1px groove #eaeaea;
+}
+
+.article_container{
+    margin-left: 100px;
+}
+
+.set-inline{
+    display: inline;
+    float: right;
 }

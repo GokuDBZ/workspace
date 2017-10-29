@@ -16,6 +16,10 @@ class ArticlesController < ApplicationController
     
     def create
       @article = Article.new(article_params.merge(user: current_user))
+      article_params[:category_ids].each{|category_id|
+        next if category_id == ""
+        ArticleCategory.create(article_id: @article.id,category_id: category_id)
+      }
       if @article.save
         flash[:notice] = "New Article #{@article.name} has been successfully added" 
         redirect_to "/articles/#{@article.id}"
@@ -62,7 +66,9 @@ class ArticlesController < ApplicationController
       @article = Article.find(params[:id])
     end
     
+    # category_ids are the category which we select from checkobox
+    # we tell here that it would be of array type
     def article_params
-        params.require(:article).permit(:name,:description)
+        params.require(:article).permit(:name,:description, category_ids: [])
     end
 end
