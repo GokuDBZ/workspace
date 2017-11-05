@@ -1,9 +1,11 @@
-<%= will_paginate(@category_list)%>
+
 <% if @category_list.present? %>
+    <div align="center"><%= will_paginate(@category_list)%></div>
     <% @category_list.each do |category| %>
-        <div class="row">
-            <div class="well">
+        <div class="row category_row" align="center">
+            <div class="well center">
                 <h2><%= category.name%></h2>
+                <span class="badge"><%= pluralize(category.articles.count,"Article","Articles")%></span>
             </div>
         </div>
     <%end%>

@@ -1,0 +1,15 @@
+// Place all the styles related to the categories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.category_row{
+    height: 200px;
+    width: 400px;
+    border-radius: 2px;
+    text-overflow: ellipsis;
+    margin-left: 500px;
+}
+
+.category_row h2{
+    text-transform: capitalize;
+}
